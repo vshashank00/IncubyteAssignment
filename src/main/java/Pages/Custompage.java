@@ -62,7 +62,7 @@ public class Custompage extends Resusable {
                 waitElementForVisibleByElement(driver, contactWindowSearchButton);
                 contactWindowSearchButton.click();
                 waitAlert(driver);
-                Alert alert = driver.switchTo().alert();
+                Alert alert=switchAlert(driver);
                 alert.sendKeys("London");
                 alert.accept();
                 driver.close();
@@ -74,7 +74,7 @@ public class Custompage extends Resusable {
     public void clickOnSubmit() {
         driver.switchTo().window(window);
         submit.click();
-        Alert alert = driver.switchTo().alert();
+        Alert alert=switchAlert(driver);
         String message = alert.getText();
         alert.accept();
         Assert.assertEquals(message, "Form is submitted successfully");
